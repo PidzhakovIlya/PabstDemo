@@ -76,7 +76,7 @@ export default {
     // };
 
     const show = (data) => {
-      console.log("show", data.document);
+      console.log("show", data);
       result.value = data.document;
       dialogVisible.value = true;
     };
