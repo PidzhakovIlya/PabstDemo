@@ -1,6 +1,6 @@
 export default {
     domains: {
-        'https://pabst-demo-git-main-pidzhakovilyas-projects.vercel.app': {
+        'https://pabst-demo.vercel.app/': {
             WEB_LIB_LICENSE_KEY: 'eyJwZGY0MTdrZXkiOiJVNjZyRmJldkRmXHUwMDJCdXJCL3g0TUdBTHJXZ0' +
                 'JlUVZ4NUZ1R1FpS3pGMlJIM0RweXF0MmtHN2Z0RXl6TlpkZEFUOUpMbmVBW' +
                 'jlTS25KOGhKUFFLdnNCMWlXZ2c0VkphMUg3aGozak9xRnBDVFBjcU0vMzV4S' +
