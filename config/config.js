@@ -58,3 +58,7 @@ export default {
     }
 };
 
+export function getCurrentDomain() {
+    console.log(window.location.hostname)
+    return window.location.hostname
+}

@@ -1,10 +1,8 @@
-import {getDocumentTypes} from "./documentTypes.js";
-import config from "../../../config/config.js";
+import {getDocumentTypes} from "./getDocumentTypes.js";
+import config, {getCurrentDomain} from "../../../config/config.js";
 
 
-function getCurrentDomain() {
-    return window.location.hostname
-}
+
 const currentDomain = getCurrentDomain();
 
 const currentConfig = config.domains[currentDomain] || config.default;
@@ -66,7 +64,7 @@ function getCaptureMethod(steps) {
         return steps.map((step) => JSON.stringify(+step.isAuto)).join("");
 }
 
-export function extractData(documentType, steps) {
+export function extractDataForSubmit(documentType, steps) {
         let frontStep, pdfStep, faceStep, mrzStep, photoStep, barcodeStep,
             frontImage, backImage, faceImage, photoImage, barcodeImage,
             rawTrackString,

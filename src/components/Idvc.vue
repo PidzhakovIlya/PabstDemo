@@ -10,7 +10,7 @@ import IDVC from "@idscan/idvc2";
 import {ElMessage} from "element-plus";
 import VerificationResultModal from "./VerificationResultModal.vue";
 import {verifyApi} from "../api/verify.api.js";
-import {extractData, idvcInitConfig} from "../webLib/model/idvcInitConfig.js";
+import { extractDataForSubmit, idvcInitConfig} from "../webLib/model/idvcInitConfig.js";
 
 
 export default {
@@ -39,7 +39,7 @@ export default {
           barcodeImage,
           rawTrackString,
           captureMethod
-        } = extractData(documentType, steps);
+        } = extractDataForSubmit(documentType, steps);
 
         const trackStringArray = rawTrackString.split(".");
         let trackString = trackStringArray[0];
