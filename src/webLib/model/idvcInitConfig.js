@@ -6,7 +6,7 @@ import config, {getCurrentDomain} from "../../../config/config.js";
 const currentDomain = getCurrentDomain();
 
 const currentConfig = config.domains[currentDomain] || config.default;
-
+console.log('config:', currentConfig)
 export const idvcInitConfig = {
         el: "videoCapturingEl",
         captureTimeout: 100,
