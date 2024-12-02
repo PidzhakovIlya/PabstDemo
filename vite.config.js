@@ -4,17 +4,14 @@ import { copy } from "vite-plugin-copy";
 import { createHtmlPlugin } from "vite-plugin-html";
 import vue from "@vitejs/plugin-vue";
 import { config } from "./config/config.js";
-import { getConfigByDomain } from "./config/getConfigByDomain.js";
 
 
 export default defineConfig( ({ mode }) => {
 
-const hostnameConfig = getConfigByDomain()
-
   return {
     mode: mode || "development",
     define: {
-      "LICENSE_KEY": JSON.stringify(config[hostnameConfig])
+      "LICENSE_KEY": JSON.stringify(config)
     },
     build: {
       outDir: resolve(__dirname, "./dist"),
