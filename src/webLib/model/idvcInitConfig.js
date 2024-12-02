@@ -1,17 +1,12 @@
 import {getDocumentTypes} from "./getDocumentTypes.js";
-import config, {getCurrentDomain} from "../../../config/config.js";
 
 
+const licenceKey =  LICENSE_KEY
 
-const currentDomain = getCurrentDomain();
-
-const currentConfig = config.domains[currentDomain] || config.default;
-console.log('config:', currentConfig)
 export const idvcInitConfig = {
         el: "videoCapturingEl",
         captureTimeout: 100,
-        // licenseKey: "LICENSE-KEY",
-        licenseKey: currentConfig.WEB_LIB_LICENSE_KEY,
+        licenseKey: licenceKey,
         networkUrl: "networks",
         resizeUploadedImage: 1600,
         fixFrontOrientAfterUpload: true,

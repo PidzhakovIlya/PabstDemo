@@ -3,19 +3,28 @@ import { resolve } from "path";
 import { copy } from "vite-plugin-copy";
 import { createHtmlPlugin } from "vite-plugin-html";
 import vue from "@vitejs/plugin-vue";
+import { config } from "./config/config.js";
+import { getConfigByDomain } from "./config/getConfigByDomain.js";
 
-export default defineConfig(({ mode }) => {
+
+export default defineConfig( ({ mode }) => {
+
+const hostnameConfig = getConfigByDomain()
+
   return {
     mode: mode || "development",
+    define: {
+      "LICENSE_KEY": JSON.stringify(config[hostnameConfig])
+    },
     build: {
       outDir: resolve(__dirname, "./dist"),
       assetsDir: "./",
       rollupOptions: {
         output: {
           entryFileNames: "index.bundle.js",
-          assetFileNames: "[name][extname]",
-        },
-      },
+          assetFileNames: "[name][extname]"
+        }
+      }
     },
     plugins: [
       vue(),
@@ -24,9 +33,9 @@ export default defineConfig(({ mode }) => {
           {
             from: "node_modules/@idscan/idvc2/dist/networks/*",
             to: "faces/networks/[name][ext]",
-            toType: "template",
-          },
-        ],
+            toType: "template"
+          }
+        ]
       }),
       createHtmlPlugin({
         minify: false,
@@ -34,17 +43,17 @@ export default defineConfig(({ mode }) => {
         template: "index.html",
         inject: {
           data: {
-            title: "Demo Pages",
-          },
-        },
-      }),
+            title: "Demo Pages"
+          }
+        }
+      })
     ],
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `style.scss`,
-        },
-      },
-    },
+          additionalData: `style.scss`
+        }
+      }
+    }
   };
 });
