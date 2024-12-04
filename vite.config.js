@@ -11,7 +11,7 @@ export default defineConfig( ({ mode }) => {
   return {
     mode: mode || "development",
     define: {
-      "LICENSE_KEY": JSON.stringify(config)
+      "LICENSE_KEY": JSON.stringify(config[process.env.DOMAIN])
     },
     build: {
       outDir: resolve(__dirname, "./dist"),

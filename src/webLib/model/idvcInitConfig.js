@@ -1,11 +1,12 @@
 import {getDocumentTypes} from "./getDocumentTypes.js";
 
 const key =  LICENSE_KEY
+console.log(key);
 
 export const idvcInitConfig = {
         el: "videoCapturingEl",
         captureTimeout: 100,
-        licenseKey: key[window.location.hostname],
+        licenseKey: key,
         networkUrl: "networks",
         resizeUploadedImage: 1600,
         fixFrontOrientAfterUpload: true,
